@@ -1,0 +1,10 @@
+FROM python
+MAINTAINER kahooli <kahooli@cavanaghs.id.au>
+
+# get git
+RUN \
+  apt-get update && \
+  apt-get install -y \
+    cron \
+    git \
+    wget \
