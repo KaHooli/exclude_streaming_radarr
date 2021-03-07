@@ -1,7 +1,9 @@
-FROM python
+FROM python:latest
 MAINTAINER kahooli <kahooli@cavanaghs.id.au>
 
-# get git
+WORKDIR /usr/src/app
+
+# install git
 RUN \
   apt-get update && \
   apt-get install -y \
@@ -9,6 +11,9 @@ RUN \
     git \
     wget
 
-RUN git clone https://github.com/haijeploeg/exclude_streaming_radarr.git /scripts
-RUN pip install -r /scripts/requirements.txt
 
+# install script & its requirements
+RUN git clone https://github.com/haijeploeg/exclude_streaming_radarr.git
+RUN pip install -r requirements.txt
+
+CMD [ "python", "./exclude_streaming_from_radarr.py" ]
