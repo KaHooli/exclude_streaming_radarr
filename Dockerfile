@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:3
 MAINTAINER kahooli <kahooli@cavanaghs.id.au>
 
 WORKDIR /usr/src/app
@@ -11,9 +11,8 @@ RUN \
     git \
     wget
 
-
 # install script & its requirements
-RUN git clone https://github.com/haijeploeg/exclude_streaming_radarr.git
-RUN pip install -r requirements.txt
+RUN git clone https://github.com/haijeploeg/exclude_streaming_radarr.git /script
+RUN pip install -r /script/requirements.txt
 
-CMD [ "python", "./exclude_streaming_from_radarr.py" ]
+CMD [ "python", "/script/exclude_streaming_from_radarr.py" ]
