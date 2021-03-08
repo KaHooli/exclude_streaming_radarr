@@ -5,4 +5,4 @@ MAINTAINER kahooli <kahooli@cavanaghs.id.au>
 RUN git clone https://github.com/haijeploeg/exclude_streaming_radarr.git /script
 RUN pip install -r /script/requirements.txt
 
-CMD [ "python", "/script/exclude_streaming_from_radarr.py" ]
+CMD [ "python", "/script/exclude_streaming_from_radarr.py -d" ]
