@@ -2,7 +2,7 @@ FROM ubuntu:latest
 MAINTAINER kahooli <kahooli@cavanaghs.id.au>
 
 # Install Python3, PIP & GIT
-RUN apt-get update && apt-get install python3-pip git -y
+RUN apt-get update && apt-get install python3-pip git -y --install-suggests
 
 # Install script & it's requirements
 RUN git clone https://github.com/haijeploeg/exclude_streaming_radarr.git /script
